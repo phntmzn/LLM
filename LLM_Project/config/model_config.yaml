@@ -1,0 +1,20 @@
+# Model Configuration
+vocab_size: 50257               # Size of the vocabulary
+context_length: 1024            # Maximum context length (sequence length)
+embedding_dim: 768              # Dimensionality of token embeddings
+num_heads: 12                   # Number of attention heads in the transformer
+num_layers: 12                  # Number of transformer layers (blocks)
+feedforward_dim: 3072           # Dimensionality of feedforward network in transformer
+dropout_rate: 0.1               # Dropout rate for regularization
+use_qkv_bias: true              # Whether to include bias in Q, K, V projections
+tie_weights: true               # Whether to tie input and output embeddings
+
+# Initialization Settings
+initializer: "xavier_uniform"   # Initialization method for weights
+initializer_gain: 1.0           # Gain parameter for initialization
+
+# Pretrained Weights
+pretrained_weights: "data/gpt2/gpt2_weights.pth"  # Path to pretrained weights
+
+# Checkpoints
+save_path: "results/models/gpt_model.pth"  # Where to save model checkpoints

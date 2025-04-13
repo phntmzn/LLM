@@ -1,0 +1,53 @@
+# Training Configuration
+
+general:
+  seed: 42                         # Random seed for reproducibility
+  device: "cuda"                   # Device for training ("cuda" or "cpu")
+  num_epochs: 10                   # Number of training epochs
+  batch_size: 16                   # Batch size for training
+  eval_batch_size: 16              # Batch size for evaluation
+  max_sequence_length: 1024        # Maximum sequence length
+  gradient_clipping: 1.0           # Gradient clipping threshold
+
+learning_rate:
+  base_lr: 5e-4                    # Base learning rate
+  warmup_steps: 1000               # Number of warmup steps
+  lr_decay: "cosine"               # Learning rate decay schedule ("cosine", "linear", "none")
+  min_lr: 1e-5                     # Minimum learning rate
+
+optimizer:
+  type: "adamw"                    # Optimizer type ("adamw", "sgd", etc.)
+  weight_decay: 0.01               # Weight decay for regularization
+
+scheduler:
+  type: "linear"                   # Scheduler type ("linear", "cosine", etc.)
+  num_training_steps: 50000        # Total training steps
+  num_warmup_steps: 1000           # Warmup steps for scheduler
+
+evaluation:
+  eval_frequency: 1                # Frequency (in epochs) for evaluation
+  metrics: ["loss", "accuracy", "perplexity"]  # Metrics to track during evaluation
+
+logging:
+  log_frequency: 10                # Frequency (in steps) for logging
+  log_dir: "results/logs/"         # Directory to save logs
+
+checkpointing:
+  save_frequency: 1                # Frequency (in epochs) to save checkpoints
+  checkpoint_dir: "results/models/"  # Directory to save model checkpoints
+  resume_from_checkpoint: false    # Whether to resume training from a checkpoint
+  checkpoint_path: "results/models/gpt_checkpoint.pth"  # Path to load a checkpoint (if applicable)
+
+data:
+  train_data_path: "data/processed/train.txt"    # Path to training data
+  val_data_path: "data/processed/val.txt"        # Path to validation data
+  shuffle_data: true                             # Whether to shuffle the data
+  num_workers: 4                                 # Number of workers for data loading
+
+augmentation:
+  enable: false                   # Enable or disable data augmentation
+  strategies: []                  # List of augmentation strategies (e.g., "token_masking", "shuffling")
+
+debugging:
+  enable: false                   # Enable debugging mode (e.g., shorter epochs)
+  debug_steps: 100                # Number of steps to run in debugging mode

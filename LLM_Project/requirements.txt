@@ -1,0 +1,12 @@
+torch==2.0.1               # PyTorch for model training
+transformers==4.32.1       # Hugging Face Transformers for GPT-2 tokenizer
+tqdm==4.65.0               # Progress bar for training loops
+numpy==1.23.5             # Numerical operations
+matplotlib==3.7.1         # Plotting utilities
+pandas==1.5.3             # Dataset handling and preprocessing
+scikit-learn==1.2.2       # Metrics and additional utilities
+jsonlines==3.1.0          # Reading and writing JSONL files
+psutil==5.9.5             # System monitoring for runtime checks
+PyYAML==6.0               # Configuration file parsing
+protobuf==4.21.10         # For TensorFlow compatibility
+tensorflow==2.12.0        # For OpenAI's GPT-2 weights (if applicable)
